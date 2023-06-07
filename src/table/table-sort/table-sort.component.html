@@ -1,0 +1,13 @@
+<span class="table-sort" (click)="onChangeDir()">
+  <span
+    class="table-sort__arrow"
+    [ngClass]="{ 'table-sort__arrow--active': sortDirection === ascendent }"
+    >&#8963;
+  </span>
+  <span
+    class="table-sort__arrow table-sort__arrow--reverse"
+    [ngClass]="{ 'table-sort__arrow--active': sortDirection === descendent }"
+  >
+    &#8963;
+  </span>
+</span>

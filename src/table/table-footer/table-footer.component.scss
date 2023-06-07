@@ -1,0 +1,27 @@
+.table-footer {
+  &__group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+  }
+
+  &__label {
+    margin-right: 8px;
+  }
+
+  &__items-on-page {
+    display: flex;
+    align-items: center;
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ::ng-deep .ngx-pagination {
+      padding: 0;
+    }
+  }
+}

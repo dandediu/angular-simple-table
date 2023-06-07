@@ -1,0 +1,61 @@
+.search {
+  border: 1px solid #cacaca;
+  border-radius: 4px;
+  height: 32px;
+  font-size: 16px;
+  padding: 0 12px;
+  margin-bottom: 12px;
+  min-width: 35%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  caption {
+    font-size: 1.3em;
+  }
+
+  &__head {
+    display: none;
+  }
+
+  &__row {
+    border-bottom: 3px solid #cacaca;
+    display: block;
+  }
+
+  &__cell {
+    display: block;
+    text-align: right;
+  }
+
+  &__cell::before {
+    // ! aria-label has no advantage, it won't be read inside a table content: attr(aria-label);
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 600px) {
+    &__head {
+      display: table-header-group;
+    }
+
+    &__row {
+      border-bottom: 1px solid #cacaca;
+      display: table-row;
+    }
+
+    &__cell {
+      display: table-cell;
+      text-align: left;
+      padding: 8px;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

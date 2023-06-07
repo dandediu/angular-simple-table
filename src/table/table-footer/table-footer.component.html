@@ -1,0 +1,37 @@
+<div class="table-footer">
+  <div class="table-footer__group">
+    <span class="text-secondary small">
+      {{ getRowsRange }} of {{ paginatorConfig.totalItems }}
+    </span>
+    <div class="table-footer__items-on-page">
+      <label for="rowsCount" class="table-footer__label">
+        <small> Items on page: </small>
+      </label>
+      <ng-select
+        labelForId="rowsCount"
+        [searchable]="false"
+        [clearable]="false"
+        [hideSelected]="true"
+        [items]="rowsCountOptions"
+        [(ngModel)]="paginatorConfig.itemsPerPage"
+      >
+      </ng-select>
+    </div>
+  </div>
+  <div class="table-footer__pagination">
+    <pagination-controls
+      [id]="paginatorConfig.id || '--'"
+      [maxSize]="maxSize"
+      [directionLinks]="directionLinks"
+      [autoHide]="autoHide"
+      [responsive]="responsive"
+      [previousLabel]="labels.previousLabel"
+      [nextLabel]="labels.nextLabel"
+      [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+      [screenReaderPageLabel]="labels.screenReaderPageLabel"
+      [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+      (pageChange)="onChangePage($event)"
+      (pageBoundsCorrection)="onPageBoundsCorrection($event)"
+    ></pagination-controls>
+  </div>
+</div>

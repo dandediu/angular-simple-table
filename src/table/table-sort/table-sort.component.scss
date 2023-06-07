@@ -1,0 +1,21 @@
+.table-sort {
+  position: relative;
+  padding-left: 2px;
+
+  &__arrow {
+    font-size: 14px;
+    display: inline-block;
+    position: absolute;
+    top: -2px;
+  }
+
+  &__arrow--reverse {
+    transform: rotate(180deg);
+    top: 2px;
+  }
+
+  &__arrow--active {
+    color: #2199e8;
+    font-weight: 700;
+  }
+}

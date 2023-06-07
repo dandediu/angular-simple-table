@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-5 col-xl-4 col-xxl-3">
+    <input type="text" class="search" placeholder="Search..." #searchInput />
+  </div>
+</div>
+<table class="table">
+  <thead class="table__head">
+    <tr class="table__row">
+      <th class="table__cell" scope="col" *ngFor="let column of columns">
+        <div class="d-flex">
+          <span class="text-uppercase">{{ column.label }}</span>
+          <table-sort
+            *ngIf="column.sortable"
+            [sortDirection]="column.sortDirection"
+            (changeDirection)="onSort($event, column)"
+          ></table-sort>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rows | paginate: paginatorConfig" class="table__row">
+      <td
+        *ngFor="let col of columns"
+        [attr.data-label]="col.label"
+        [innerHTML]="getCellValue(row, col)"
+        class="table__cell"
+      ></td>
+      <td *ngIf="actionsCell" class="table__cell">
+        <ng-template
+          [ngTemplateOutletContext]="{ $implicit: row }"
+          [ngTemplateOutlet]="actionsCell"
+        >
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table-footer
+  [rows]="rows"
+  [paginatorConfig]="paginatorConfig"
+  (changePage)="onChangePage($event)"
+></table-footer>
